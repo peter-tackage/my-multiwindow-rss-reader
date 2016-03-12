@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         // Our unique application identifier!
-        applicationId "com.moac.android.myrssreader"
+        applicationId "com.moac.android.mymultiwindowrssreader"
         minSdkVersion 'N'
         targetSdkVersion 'N'
         versionCode 1
