@@ -14,20 +14,20 @@ import java.util.List;
 /**
  * Creates View items to be displayed in a RecyclerView, populated with data.
  */
-public class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapter.ViewHolder> {
+public final class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapter.ViewHolder> {
 
     private final List<FeedItem> dataset;
     private final OnFeedItemClickListener onFeedItemClickListener;
 
     public FeedItemListAdapter(final List<FeedItem> dataset,
-                               OnFeedItemClickListener onFeedItemClickListener) {
+                               final OnFeedItemClickListener onFeedItemClickListener) {
         this.dataset = dataset;
         this.onFeedItemClickListener = onFeedItemClickListener;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                         int viewType) {
+    public ViewHolder onCreateViewHolder(final ViewGroup parent,
+                                         final int viewType) {
         // Create a new View instances from the XML layout definition
         View view = LayoutInflater.from(parent.getContext())
                                   .inflate(R.layout.view_feed_item, parent, false);
@@ -36,7 +36,7 @@ public class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapte
 
     // Bind a View (new or recycled) to a data item
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.bindItem(dataset.get(position), onFeedItemClickListener);
     }
 
@@ -51,7 +51,7 @@ public class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapte
      */
     public interface OnFeedItemClickListener {
 
-        void onItemClicked(FeedItem item);
+        void onItemClicked(final FeedItem item);
     }
 
     /**
@@ -63,7 +63,7 @@ public class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapte
         private final TextView titleTextView;
         private final TextView descriptionTextView;
 
-        ViewHolder(View view) {
+        ViewHolder(final View view) {
             super(view);
             rootView = view;
             titleTextView = (TextView) view.findViewById(R.id.textView_title);

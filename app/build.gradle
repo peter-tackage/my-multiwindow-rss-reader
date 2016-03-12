@@ -12,6 +12,10 @@ android {
         targetSdkVersion 'N'
         versionCode 1
         versionName "1.0"
+
+        jackOptions {
+            enabled true
+        }
     }
 
     buildTypes {
@@ -52,5 +56,4 @@ dependencies {
     // Use the Simple-XML parser to convert the items into POJOs.
     compile('com.squareup.retrofit:converter-simplexml:1.9.0')
     compile('org.simpleframework:simple-xml:2.7.1')
-
 }

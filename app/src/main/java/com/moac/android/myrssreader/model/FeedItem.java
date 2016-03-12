@@ -4,7 +4,7 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 @Root(strict = false, name = "item")
-public class FeedItem {
+public final class FeedItem {
 
     @Element
     private String title;

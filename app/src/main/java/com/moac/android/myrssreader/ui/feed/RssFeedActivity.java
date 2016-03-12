@@ -22,7 +22,7 @@ import retrofit.client.Response;
 /**
  * This is our main Activity, it will show a list item RSS feed items retrieved from the internet.
  */
-public class RssFeedActivity extends AppCompatActivity {
+public final class RssFeedActivity extends AppCompatActivity {
 
     private static final String TAG = RssFeedActivity.class.getSimpleName();
 

@@ -12,7 +12,7 @@ import java.util.List;
  * @see <a href="http://simple.sourceforge.net/download/stream/doc/tutorial/tutorial.php">Simple-XML</a>
  */
 @Root(strict = false)
-public class RssFeedResponse {
+public final class RssFeedResponse {
 
     @Element
     private Channel channel;
