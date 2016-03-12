@@ -1,7 +1,7 @@
-package com.moac.android.myrssreader.ui.feed;
+package com.moac.android.mymultiwindowrssreader.ui.feed;
 
-import com.moac.android.myrssreader.R;
-import com.moac.android.myrssreader.model.FeedItem;
+import com.moac.android.mymultiwindowrssreader.R;
+import com.moac.android.mymultiwindowrssreader.model.FeedItem;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

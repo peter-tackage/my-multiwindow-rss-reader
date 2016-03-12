@@ -1,4 +1,4 @@
-package com.moac.android.myrssreader.model;
+package com.moac.android.mymultiwindowrssreader.model;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;

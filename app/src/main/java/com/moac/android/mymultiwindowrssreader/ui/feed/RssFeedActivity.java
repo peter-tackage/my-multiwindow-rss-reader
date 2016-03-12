@@ -1,10 +1,10 @@
-package com.moac.android.myrssreader.ui.feed;
+package com.moac.android.mymultiwindowrssreader.ui.feed;
 
-import com.moac.android.myrssreader.MyRssFeedApplication;
-import com.moac.android.myrssreader.R;
-import com.moac.android.myrssreader.api.BbcRssApi;
-import com.moac.android.myrssreader.model.RssFeedResponse;
-import com.moac.android.myrssreader.ui.article.ArticleActivity;
+import com.moac.android.mymultiwindowrssreader.MyRssFeedApplication;
+import com.moac.android.mymultiwindowrssreader.R;
+import com.moac.android.mymultiwindowrssreader.api.BbcRssApi;
+import com.moac.android.mymultiwindowrssreader.model.RssFeedResponse;
+import com.moac.android.mymultiwindowrssreader.ui.article.ArticleActivity;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;

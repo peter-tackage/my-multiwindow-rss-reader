@@ -1,6 +1,6 @@
-package com.moac.android.myrssreader.ui.article;
+package com.moac.android.mymultiwindowrssreader.ui.article;
 
-import com.moac.android.myrssreader.R;
+import com.moac.android.mymultiwindowrssreader.R;
 
 import android.content.Context;
 import android.content.Intent;

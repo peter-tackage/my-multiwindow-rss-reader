@@ -1,6 +1,6 @@
-package com.moac.android.myrssreader.api;
+package com.moac.android.mymultiwindowrssreader.api;
 
-import com.moac.android.myrssreader.model.RssFeedResponse;
+import com.moac.android.mymultiwindowrssreader.model.RssFeedResponse;
 
 import retrofit.Callback;
 import retrofit.http.GET;

@@ -1,6 +1,6 @@
-package com.moac.android.myrssreader;
+package com.moac.android.mymultiwindowrssreader;
 
-import com.moac.android.myrssreader.api.BbcRssApi;
+import com.moac.android.mymultiwindowrssreader.api.BbcRssApi;
 
 import android.app.Application;
 
