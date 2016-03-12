@@ -1,13 +1,10 @@
 package com.moac.android.myrssreader;
 
-import android.app.Application;
-import android.util.Log;
-
 import com.moac.android.myrssreader.api.BbcRssApi;
 
-import retrofit.ErrorHandler;
+import android.app.Application;
+
 import retrofit.RestAdapter;
-import retrofit.RetrofitError;
 import retrofit.converter.SimpleXMLConverter;
 
 /**
@@ -41,13 +38,13 @@ public class MyRssFeedApplication extends Application {
         RestAdapter feedRestAdapter = new RestAdapter.Builder()
                 .setConverter(new SimpleXMLConverter())
                 .setLogLevel(RestAdapter.LogLevel.FULL)
-                .setErrorHandler(new ErrorHandler() {
-                    @Override
-                    public Throwable handleError(final RetrofitError cause) {
-                        Log.e("BbcRestApi", "Error occurred for URL: " + cause.getUrl(), cause);
-                        return cause;
-                    }
-                })
+                .setErrorHandler(cause -> cause)
+//                    @Override
+//                    public Throwable handleError(final RetrofitError cause) {
+//                        Log.e("BbcRestApi", "Error occurred for URL: " + cause.getUrl(), cause);
+//                        return cause;
+//                    }
+//                })
                 .setEndpoint("http://feeds.bbci.co.uk/")
                 .build();
 

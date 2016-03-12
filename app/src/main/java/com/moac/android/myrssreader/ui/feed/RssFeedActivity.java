@@ -1,19 +1,19 @@
 package com.moac.android.myrssreader.ui.feed;
 
+import com.moac.android.myrssreader.MyRssFeedApplication;
+import com.moac.android.myrssreader.R;
+import com.moac.android.myrssreader.api.BbcRssApi;
+import com.moac.android.myrssreader.model.RssFeedResponse;
+import com.moac.android.myrssreader.ui.article.ArticleActivity;
+
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
-import com.moac.android.myrssreader.MyRssFeedApplication;
-import com.moac.android.myrssreader.R;
-import com.moac.android.myrssreader.api.BbcRssApi;
-import com.moac.android.myrssreader.model.FeedItem;
-import com.moac.android.myrssreader.model.RssFeedResponse;
-import com.moac.android.myrssreader.ui.article.ArticleActivity;
+import java.util.Locale;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -29,12 +29,7 @@ public class RssFeedActivity extends AppCompatActivity {
     private RecyclerView feedRecyclerView;
 
     private final FeedItemListAdapter.OnFeedItemClickListener onFeedItemClickListener
-            = new FeedItemListAdapter.OnFeedItemClickListener() {
-        @Override
-        public void onItemClicked(final FeedItem item) {
-            ArticleActivity.launch(RssFeedActivity.this, item.getLink());
-        }
-    };
+            = item -> ArticleActivity.launch(RssFeedActivity.this, item.getLink());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,35 +63,37 @@ public class RssFeedActivity extends AppCompatActivity {
             public void success(final RssFeedResponse rssFeedResponse, final Response response) {
                 // Report success to the UI using a "Snackbar".
                 Snackbar.make(feedRecyclerView,
-                        String.format("We received %d items!", rssFeedResponse.getChannel()
-                                .getFeedItems()
-                                .size()),
-                        Snackbar.LENGTH_SHORT)
+                              String.format(Locale.getDefault(),
+                                            "We received %d items!", rssFeedResponse.getChannel()
+                                                                                    .getFeedItems()
+                                                                                    .size()),
+                              Snackbar.LENGTH_SHORT)
                         .show();
 
                 feedRecyclerView.setAdapter(
                         new FeedItemListAdapter(rssFeedResponse.getChannel().getFeedItems(),
-                                onFeedItemClickListener));
+                                                onFeedItemClickListener));
             }
 
             @Override
             public void failure(final RetrofitError error) {
                 // Report failure to the UI using a "Snackbar" and log it.
-                final Snackbar snackbar = Snackbar.make(feedRecyclerView, "Error! " + error, Snackbar.LENGTH_INDEFINITE);
+                final Snackbar snackbar = Snackbar
+                        .make(feedRecyclerView, "Error! " + error, Snackbar.LENGTH_INDEFINITE);
                 snackbar.setAction(getString(R.string.msg_retry),
-                        new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                loadFeed();
-                                snackbar.dismiss();
-                            }
-                        });
+                                   __ -> loadFeedAndDismissSnackbar(snackbar));
                 snackbar.show();
 
                 // Report the failure to application logs
                 Log.e(TAG, "Error when retrieving feed", error);
             }
+
+            private void loadFeedAndDismissSnackbar(final Snackbar snackbar) {
+                loadFeed();
+                snackbar.dismiss();
+            }
         });
+
     }
 
     /**

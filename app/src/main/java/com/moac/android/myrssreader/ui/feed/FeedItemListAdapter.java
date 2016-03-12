@@ -1,13 +1,13 @@
 package com.moac.android.myrssreader.ui.feed;
 
+import com.moac.android.myrssreader.R;
+import com.moac.android.myrssreader.model.FeedItem;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.moac.android.myrssreader.R;
-import com.moac.android.myrssreader.model.FeedItem;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapte
                                          int viewType) {
         // Create a new View instances from the XML layout definition
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.view_feed_item, parent, false);
+                                  .inflate(R.layout.view_feed_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -74,12 +74,7 @@ public class FeedItemListAdapter extends RecyclerView.Adapter<FeedItemListAdapte
          * Bind a FeedItem data model to the View
          */
         void bindItem(final FeedItem feedItem, final OnFeedItemClickListener clickListener) {
-            rootView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    clickListener.onItemClicked(feedItem);
-                }
-            });
+            rootView.setOnClickListener(__ -> clickListener.onItemClicked(feedItem));
             titleTextView.setText(feedItem.getTitle());
             descriptionTextView.setText(feedItem.getDescription());
         }
