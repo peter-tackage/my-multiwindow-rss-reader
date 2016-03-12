@@ -4,9 +4,9 @@ This is a modified version of the [my-rss-reader](https://github.com/peter-tacka
 application which uses the [Android N multi-window APIs](http://developer.android.com/preview/features/multi-window.html)
 to open the articles on the adjacent window.
 
- ![Screenshot 1](./screenshots/device-2015-09-09-170834.png)
+ ![Screenshot 1](./screenshots/device-2016-03-12-200213.png)
 
- ![Screenshot 2](./screenshots/device-2015-09-09-171043.png)
+ ![Screenshot 2](./screenshots/device-2016-03-12-200243.png)
 
 License
 -------
